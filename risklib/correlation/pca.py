@@ -3,7 +3,7 @@ import numpy as np
 def pca(returns, n_components=None, standardize=True, use_correlation=True):
 
     # --- Centering
-    Xc = X - X.mean(axis=0)
+    Xc = returns - returns.mean(axis=0)
 
     # --- Scaling (equivalent to scale() in R)
     if standardize:

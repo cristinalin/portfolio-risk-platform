@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "portfolio-risk-platform"
+version = "0.1.0"
+description = "Risk Management library"
+authors = [{ name = "LIS – Risk Management Team" }]
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "matplotlib",
+    "arch"
+]

@@ -1,7 +1,7 @@
 import math
 from scipy.stats import chi2
 
-def calculate_kupiec_test(breaches, days, expected_breaches_rate, confidence_level):
+def kupiec_test(breaches, days, expected_breaches_rate, confidence_level):
     expected_breaches_rate = (1 - confidence_level)
     expected_breaches = days * expected_breaches_rate
     actual_breach_rate = breaches / days

@@ -9,6 +9,8 @@ from risklib.var.component import calculate_component_var
 # Backtesting
 from risklib.backtesting.kupiec import kupiec_test
 from risklib.backtesting.christoffersen import christoffersen_test
+from risklib.backtesting.breaches import calculate_breaches
+from risklib.backtesting.chart import plot_breach_chart
 
 # Correlation
 from risklib.correlation.diversification import variance_concentration
@@ -44,6 +46,8 @@ __all__ = [
     # Backtesting
     "kupiec_test",
     "christoffersen_test",
+    "calculate_breaches",
+    "plot_breach_chart",
 
     # Correlation
     "variance_concentration",

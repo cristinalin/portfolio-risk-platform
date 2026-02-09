@@ -8,6 +8,8 @@ def portfolio_returns(dataframe, weights, log_returns = False):
         weights = weights.values
     else:
         weights = np.array(weights)
+    
+    print(weights)
 
     if log_returns:
         returns = np.log(dataframe / dataframe.shift(1))

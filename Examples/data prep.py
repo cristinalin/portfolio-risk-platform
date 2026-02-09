@@ -7,10 +7,10 @@ import risklib as rm
 prices = pd.read_excel(io = '/Users/cristina_yj/Desktop/LIS/Risk/projects/all/Data_asset daily prices.xlsx', sheet_name='prices')
 weights = pd.read_excel(io = '/Users/cristina_yj/Desktop/LIS/Risk/projects/all/Data_asset daily prices.xlsx', sheet_name='weights')
 liquidity = pd.read_excel(io = '/Users/cristina_yj/Desktop/LIS/Risk/projects/all/Data_liquidity.xlsx', sheet_name = 'Liquidity')
-print(prices)
 
-#returns = rm.portfolio_returns(prices, weights)
-'''
+returns = rm.portfolio_returns(prices, weights)
+print(returns)
+
 n_assets = returns.shape[1]
 weights = np.ones(n_assets) / n_assets
 
@@ -85,4 +85,3 @@ print("=== Liquidity Adjustment ===")
 print(f"Liquidity-adjusted VaR: {liq_var:.4f}\n")
 
 print("Risk pipeline executed successfully.")
-'''

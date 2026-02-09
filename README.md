@@ -8,4 +8,4 @@ If you want to develop or test the library, and receive automatic updates:
     cd portfolio-risk-platform
     pip install -e .
 
-Last updated: 17h08, January 30, 2026.
+Last updated: 17h40, Feb 9, 2026.

@@ -9,7 +9,25 @@ weights = pd.read_excel(io = '/Users/cristina_yj/Desktop/LIS/Risk/projects/all/D
 liquidity = pd.read_excel(io = '/Users/cristina_yj/Desktop/LIS/Risk/projects/all/Data_liquidity.xlsx', sheet_name = 'Liquidity')
 print(prices, weights, liquidity)
 
-returns = prices.pct_change().dropna()
+#returns = rm.portfolio_returns(prices, weights)
+log_returns = False
+
+if isinstance(weights, pd.DataFrame):
+    weights = weights.iloc[0]
+if isinstance(weights, pd.Series):
+    weights = weights.values
+else:
+    weights = np.array(weights)
+
+weights = weights / np.sum(weights)
+
+if log_returns:
+    returns = np.log(prices / prices.shift(1))
+else:
+    returns = prices.pct_change()
+
+portfolio_returns = returns.dot(weights)
+print(portfolio_returns)
 
 n_assets = returns.shape[1]
 weights = np.ones(n_assets) / n_assets

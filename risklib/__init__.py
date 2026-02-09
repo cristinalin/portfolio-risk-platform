@@ -29,6 +29,7 @@ from risklib.liquidity.liquity_adjusted import liquidity_adjusted
 from risklib.monte_carlo.simulations import monte_carlo
 from risklib.monte_carlo.simulations import montecarlo_histogram
 from risklib.monte_carlo.simulations import montecarlo_series
+from risklib.monte_carlo.simulations import monte_carlo_var
 
 # Utilities (auxiliar functions)
 from risklib.utils.covariance import calculate_cov_matrix
@@ -67,6 +68,7 @@ __all__ = [
     'monte_carlo',
     'montecarlo_histogram',
     'montecarlo_series',
+    'monte_carlo_var'
 
     # Utilities 
     'calculate_cov_matrix',

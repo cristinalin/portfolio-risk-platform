@@ -23,6 +23,5 @@ def calculate_breaches(returns, window, confidence_level):
             breach_sequence.append(1)
         else:
             breach_sequence.append(0)
-        days += 1
     
-    return breach_sequence, days
+    return breach_sequence, breaches

@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt 
+from risklib.var.historical import calculate_historical_var
+from risklib.es.historical import calculate_historical_es
 
 def monte_carlo(returns, window, n_simulations, confidence_level):
     VaR_MC_param, ES_MC_param, VaR_MC_boot, ES_MC_boot = [], [], [], []
@@ -32,6 +34,14 @@ def monte_carlo(returns, window, n_simulations, confidence_level):
     all_results = pd.concat([VaR_MC_param, ES_MC_param, VaR_MC_boot, ES_MC_boot], axis=1)
 
     return all_results
+
+def monte_carlo_var(simulations, metric, type, confidence_level):
+    returns = simulations[f'{metric}_MC_{type}']
+    if metric == 'VaR':
+        monte_carlo_var = calculate_historical_var(returns, confidence_level)
+    else:
+        monte_carlo_var = calculate_historical_es(returns, confidence_level)
+    return monte_carlo_var
 
 def montecarlo_histogram(returns, window, n_simulations, confidence_level, all_results):
     latest_sim_boot = np.random.choice(returns.iloc[-window:], 

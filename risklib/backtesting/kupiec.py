@@ -1,10 +1,9 @@
 import math
 from scipy.stats import chi2
 
-def kupiec_test(breaches, days, expected_breaches_rate, confidence_level):
+def kupiec_test(breaches, days, confidence_level):
     expected_breaches_rate = (1 - confidence_level)
-    expected_breaches = days * expected_breaches_rate
-    actual_breach_rate = breaches / days
+    actual_breach_rate = breaches/days
     
     if breaches == 0 or breaches == days:
         return (None, None, "It is not possible to calculate")

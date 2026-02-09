@@ -1,5 +1,5 @@
 from risklib.es.historical import calculate_historical_es
-from risklib.utils.volatility import portfolio_std_dev
+from risklib.utils.portfolio import portfolio_std_dev
 from risklib.utils.covariance import calculate_cov_matrix
 
 def calculate_marginal_es(returns, weights, confidence_level):

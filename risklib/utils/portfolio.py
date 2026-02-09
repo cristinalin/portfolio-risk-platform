@@ -10,15 +10,6 @@ def portfolio_std_dev(returns, weights):
     return np.sqrt(sigma2_p)
 
 def portfolio_returns(dataframe, weights, log_returns = False):
-    if type(weights) == pd.DataFrame:
-        weights = weights.iloc[1, 1:]
-    if type(weights) == pd.Series:
-        weights = weights.values
-    else:
-        weights = np.array(weights)
-    
-    print(weights)
-
     if log_returns:
         returns = np.log(dataframe / dataframe.shift(1))
     else:

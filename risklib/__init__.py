@@ -32,42 +32,44 @@ from risklib.monte_carlo.simulations import montecarlo_series
 
 # Utilities (auxiliar functions)
 from risklib.utils.covariance import calculate_cov_matrix
-from risklib.utils.volatility import portfolio_std_dev
+from risklib.utils.portfolio import portfolio_std_dev
+from risklib.utils.portfolio import portfolio_returns
 
 __all__ = [
     # VaR
-    "calculate_historical_var",
-    "calculate_ewma_var",
-    "calculate_gaussian_var",
-    "calculate_marginal_var",
-    "pct_contribution_var",
-    "calculate_component_var",
+    'calculate_historical_var',
+    'calculate_ewma_var',
+    'calculate_gaussian_var',
+    'calculate_marginal_var',
+    'pct_contribution_var',
+    'calculate_component_var',
 
     # Backtesting
-    "kupiec_test",
-    "christoffersen_test",
-    "calculate_breaches",
-    "plot_breach_chart",
+    'kupiec_test',
+    'christoffersen_test',
+    'calculate_breaches',
+    'plot_breach_chart',
 
     # Correlation
-    "variance_concentration",
-    "diversification_ratio",
-    "pca",
+    'variance_concentration',
+    'diversification_ratio',
+    'pca',
 
     # ES
-    "calculate_component_es",
-    "calculate_historical_es",
-    "calculate_marginal_es",
+    'calculate_component_es',
+    'calculate_historical_es',
+    'calculate_marginal_es',
 
     # Liquidity
-    "liquidity_adjusted",
+    'liquidity_adjusted',
 
     # Monte Carlo
-    "monte_carlo",
-    "montecarlo_histogram",
-    "montecarlo_series",
+    'monte_carlo',
+    'montecarlo_histogram',
+    'montecarlo_series',
 
     # Utilities 
-    "calculate_cov_matrix",
-    "portfolio_std_dev",
+    'calculate_cov_matrix',
+    'portfolio_std_dev',
+    'portfolio_returns'
 ]

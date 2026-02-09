@@ -1,9 +1,8 @@
 import numpy as np
 import math
 from scipy.stats import chi2
-from risklib.var.historical import calculate_historical_var
 
-def calculate_christoffersen_test(breach_sequence, days, returns, window):
+def christoffersen_test(breach_sequence):
 
     # Matrix of transitions
     n00 = n01 = n10 = n11 = 0

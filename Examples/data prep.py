@@ -4,8 +4,10 @@ import risklib as rm
 # call the functions using rm.(function name here)()
 
 # import data
-prices = pd.read_excel(io = '/Users/cristina_yj/Desktop/LIS/Risk/projects/all/Data_asset daily prices (2).xlsx', index_col=0)
-liquidity = pd.read_excel(io = '/Users/cristina_yj/Desktop/LIS/Risk/projects/all/Data_liquidity.xlsx', index_col=0)
+prices = pd.read_excel(io = '/Users/cristina_yj/Desktop/LIS/Risk/projects/all/Data_asset daily prices.xlsx', sheet_name='prices')
+weights = pd.read_excel(io = '/Users/cristina_yj/Desktop/LIS/Risk/projects/all/Data_asset daily prices.xlsx', sheet_name='weights')
+liquidity = pd.read_excel(io = '/Users/cristina_yj/Desktop/LIS/Risk/projects/all/Data_liquidity.xlsx', sheet_name = 'Liquidity')
+print(prices, weights, liquidity)
 
 returns = prices.pct_change().dropna()
 
@@ -13,7 +15,7 @@ n_assets = returns.shape[1]
 weights = np.ones(n_assets) / n_assets
 
 alpha = 0.99
-
+window = 1000
 hist_var = rm.calculate_historical_var(returns.iloc[:, 0], alpha=alpha)
 ewma_var_ = rm.calculate_ewma_var(returns.iloc[:, 0], alpha=alpha)
 port_var = rm.calculate_historical_var(returns.values, weights, alpha=alpha)
@@ -52,7 +54,8 @@ test_returns = returns.iloc[-len(rolling_var):, 0].values
 test_var = rolling_var.iloc[:, 0].values
 
 kupiec = rm.kupiec_test(test_returns, test_var, alpha=alpha)
-christoffersen = rm.christoffersen_test(test_returns, test_var, alpha=alpha)
+breaches = rm.calculate_breaches(test_returns, window, 1-alpha)
+christoffersen = rm.christoffersen_test(breaches)
 
 print("=== Backtesting ===")
 print("Kupiec test:", kupiec)

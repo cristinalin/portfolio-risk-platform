@@ -1,10 +1,10 @@
 # portfolio-risk-platform
 
 If you only want to use the library and stable results:
-    pip install git+ https://github.com/cristinalin/portfolio-risk-platform.git
+    pip install git+ https://github.com/cristinalin/portfolio-risk-platform.git@v0.0.1
 
 If you want to develop or test the library, and receive automatic updates:
-    git clone https://github.com/cristinalin/portfolio-risk-platform.git
+    git clone https://github.com/cristinalin/portfolio-risk-platform.git@v0.0.1
     cd portfolio-risk-platform
     pip install -e .
 

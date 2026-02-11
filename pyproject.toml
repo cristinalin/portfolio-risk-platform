@@ -9,4 +9,5 @@ description = "Risk management library (VaR, ES, backtesting, Monte Carlo)"
 
 [tool.setuptools.packages.find]
 where = ["."]
+include = ['risklib']
 exclude = ["Examples*"]

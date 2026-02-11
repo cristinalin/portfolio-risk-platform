@@ -1,10 +1,10 @@
 # VaR
-from risklib.var.historical import calculate_historical_var
-from risklib.var.ewma import calculate_ewma_var
-from risklib.var.gaussian import calculate_gaussian_var
-from risklib.var.marginal import calculate_marginal_var
-from risklib.var.pct_contribution import pct_contribution_var
-from risklib.var.component import calculate_component_var
+from risklib.var1.historical import calculate_historical_var
+from risklib.var1.ewma import calculate_ewma_var
+from risklib.var1.gaussian import calculate_gaussian_var
+from risklib.var1.marginal import calculate_marginal_var
+from risklib.var1.pct_contribution import pct_contribution_var
+from risklib.var1.component import calculate_component_var
 
 # Backtesting
 from risklib.backtesting.kupiec import kupiec_test

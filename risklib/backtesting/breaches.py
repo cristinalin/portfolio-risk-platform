@@ -1,5 +1,5 @@
 import numpy as np
-from risklib.var.historical import calculate_historical_var
+from risklib.var1.historical import calculate_historical_var
 
 def calculate_breaches(returns, window, confidence_level):
     historical_vars = []

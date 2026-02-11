@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt 
-from risklib.var.historical import calculate_historical_var
+from risklib.var1.historical import calculate_historical_var
 from risklib.es.historical import calculate_historical_es
 
 def monte_carlo(returns, window, n_simulations, confidence_level):

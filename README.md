@@ -15,5 +15,6 @@ In case you are using Jupyter Notebook:
 
 For updates after installing:
     git pull
+    %git pull (for Jupyter Notebook)
 
 Last updated: 17h40, Feb 11, 2026.

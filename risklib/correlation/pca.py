@@ -39,10 +39,15 @@ def pca(returns, n_components=None, standardize=True, use_correlation=True):
     # --- Loadings
     loadings = eigenvectors
 
-    return {
-        "eigenvalues": eigenvalues,
-        "eigenvectors": eigenvectors,
-        "explained_variance_ratio": explained_variance_ratio,
-        "scores": scores,
-        "loadings": loadings,
-    }
+    # --- NEW: Identify top 3 assets contributing most to PC1
+    abs_loadings_pc1 = np.abs(loadings[:, 0])
+    try:
+        # For DataFrame: get column names
+        sorted_idx = np.argsort(abs_loadings_pc1)[::-1]  # descending order
+        top_3_assets = returns.columns[sorted_idx[:3]].tolist()
+    except AttributeError:
+        # fallback if returns is a NumPy array
+        sorted_idx = np.argsort(abs_loadings_pc1)[::-1]
+        top_3_assets = sorted_idx[:3].tolist()
+
+    return eigenvalues, eigenvectors, explained_variance_ratio, scores, loadings, top_3_assets

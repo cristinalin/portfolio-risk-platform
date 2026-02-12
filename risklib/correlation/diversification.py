@@ -1,7 +1,9 @@
 import numpy as np
 
 def variance_concentration(explained_variance_ratio, k=1):
-    evr = np.asarray(explained_variance_ratio)
+    # convert to float array safely
+    evr = np.array(explained_variance_ratio, dtype=float)
+    k = min(k, len(evr))
     return evr[:k].sum()
 
 def diversification_ratio(returns, weights):

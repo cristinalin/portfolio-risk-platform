@@ -9,5 +9,5 @@ def calculate_gaussian_var(returns, confidence_level):
     sigma = np.sqrt(returns.var())
     mu = returns.mean()
     
-    gaussian_var = z_abs * sigma + mu
+    gaussian_var = z_abs * sigma
     return gaussian_var

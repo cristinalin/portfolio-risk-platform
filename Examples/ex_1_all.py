@@ -25,9 +25,9 @@ port_hvar = rm.calculate_historical_var(returns, confidence_level)
 port_gvar = rm.calculate_gaussian_var(returns, confidence_level)
 
 print('=== VaR ===')
-print(f'Historical VaR (asset 1): {hist_var_company_level:.4f}')
-print(f'EWMA VaR (asset 1):       {ewma_var_:.4f}')
-print(f'Portfolio HVaR:           {port_hvar:.4f}')
+print(f'Historical VaR (asset 1): {abs(hist_var_company_level):.4f}')
+print(f'EWMA VaR:                 {abs(ewma_var_):.4f}')
+print(f'Portfolio HVaR:           {abs(port_hvar):.4f}')
 print(f'Portfolio Gaussian VaR:   {port_gvar:.4f}\n')
 
 mvar = rm.calculate_marginal_var(asset_returns, w, confidence_level)
@@ -63,8 +63,8 @@ expected_breaches = np.round((1-confidence_level)*window, 0)
 
 print('=== Backtesting ===')
 print('Kupiec test:', kupiec)
-print('Christoffersen test:', christoffersen, '\n')
-print('Number of breaches:', breaches, '\n')
+print('Christoffersen test:', christoffersen)
+print('Number of breaches:', breaches)
 print('Expected number of breaches:', expected_breaches, '\n')
 
 eigvals, eigvecs, evr, scores, loadings, top3 = rm.pca(asset_returns)
